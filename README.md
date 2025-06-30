@@ -2,6 +2,14 @@
 
 An interactive and responsive dashboard built with **Angular 19**, featuring user analytics, chart visualizations using `ng-apexcharts`, and global state management via NgRx.
 
+## Installation steps:
+
+- git clone https://github.com/your-username/team-dashboard.git
+  cd team-dashboard
+- Install Dependencies: npm install
+- Run the application : npm start
+- Visit the app at: http://localhost:4200
+
 ---
 
 ## 🚀 Features
@@ -33,9 +41,3 @@ Make sure you are using:
 
 - **Node.js** version `>=16.x`
 - **npm** version `>=8.x`
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/your-username/team-dashboard.git
-cd team-dashboard

@@ -1,0 +1,106 @@
+<div class="table-container">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns">{{ col.column_name }}</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of paginatedUsers; let i=index">
+        <td *ngFor="let col of columns">
+          <ng-container [ngSwitch]="col.type">
+
+            <!-- Name -->
+            <ng-container *ngSwitchCase="'name'" class="name">
+             <div class="name-header">
+                <div class="avatar-group"><img [src]="'https://i.pravatar.cc/40?img=' + (i + 1)" alt="User 2" loading="lazy"/></div>
+                <div class="name-cell">
+                    <span class="full-name">{{ user.name.first_name }} {{ user.name.last_name }}</span>
+                    <span class="handle">{{ user.name.handle }}</span>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Status -->
+            <ng-container *ngSwitchCase="'status'">
+              <span class="status-chip" [class.customer]="user.status === 'Customer'" [class.churned]="user.status === 'Churned'">
+                {{ user.status }}
+              </span>
+            </ng-container>
+
+            <!-- Role -->
+            <ng-container *ngSwitchCase="'text'">
+             {{ getUserField(user, col) }}   
+            </ng-container>
+
+            <!-- Progress -->
+            <ng-container *ngSwitchCase="'progress'">
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="user.license_used"></div>
+              </div>
+            </ng-container>
+
+            <!-- Tags -->
+            <ng-container *ngSwitchCase="'tags'">
+              <div class="tags-container">
+                <span
+                  *ngFor="let team of user.teams"
+                  class="tag"
+                  [style.color]="team.text_color"
+                  [style.backgroundColor]="team.background_color"
+                >
+                  {{ team.value }}
+                </span>
+              </div>
+            </ng-container>
+
+          </ng-container>
+        </td>
+
+        <!-- Actions -->
+        <td>
+           <button class="edit-btn" (click)="edit.emit(user)">
+            <i class="fa-solid fa-pen"></i>
+           </button>
+            <button class="delete-btn" (click)="delete.emit(user)"><i class="fa-solid fa-trash"></i></button>
+         </td>
+
+
+      </tr>
+    </tbody>
+
+ 
+
+
+  </table>
+     <!-- Pagination -->
+     <!-- Pagination -->
+<div class="pagination-container" *ngIf="totalPages.length > 1">
+  <div class="pagination-left">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+      <i class="fa-solid fa-arrow-left"></i> Previous
+    </button>
+  </div>
+
+  <div class="pagination-pages">
+    <button
+      *ngFor="let page of totalPages"
+      [class.active]="page === currentPage"
+      (click)="goToPage(page)"
+    >
+      {{ page }}
+    </button>
+  </div>
+
+  <div class="pagination-right">
+    <button
+      (click)="goToPage(currentPage + 1)"
+      [disabled]="currentPage === totalPages.length"
+    >
+      Next <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+</div>

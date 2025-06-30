@@ -1,0 +1,56 @@
+<div class="chart-container">
+  
+   <div class="bar-chart-container">
+         <div class="vendor-heading">
+              <!-- logo -->
+               <div><img src="" alt=""></div>
+               <!-- heading -->
+                <div class="vendor-heading__header">
+                  <h4 class="">Vendor Breakdown</h4>
+                  <p class="">Keep track of vendor and their security ratings</p>
+                </div>
+         </div>
+
+          <div class="bar-chart" #chart>
+                <apx-chart
+                  [series]="barChartOption.series!"
+                  [chart]="barChartOption.chart!"
+                  [xaxis]="barChartOption.xaxis!"
+                  [title]="barChartOption.title!"
+  
+                ></apx-chart>
+          </div>
+
+          <div class="report-btn-wrapper">
+            <button class="report-btn">View Full Report</button>
+          </div>
+   </div>
+
+   
+   <div class="vendor-monitored">
+            
+              <div class="radial_heading">
+                <h4>Vendors Monitored</h4>
+                <p>You are using 80% of available spots</p>
+              </div>
+
+             <div class="radial-chart">
+                <apx-chart
+                    [series]="radialChartOptions.series!"
+                    [chart]="radialChartOptions.chart!"
+                    [plotOptions]="radialChartOptions.plotOptions!"
+                    [labels]="radialChartOptions.labels!"
+                    [fill]="radialChartOptions.fill!"
+                  ></apx-chart>
+              </div>
+
+              <div class="bottom-text">
+                   <h4>You've almost reached your limit</h4>
+                    <p>You have used 80% of available spots</p>
+                    <p>Upgrade plan to monitor more vendors</p>
+              </div>
+
+              <div class="upgrade-btn-wrapper"> <button class="upgrade-btn"> <i class="fa-solid fa-bolt"></i> Upgrade Plan</button></div>
+   </div>
+  
+</div>

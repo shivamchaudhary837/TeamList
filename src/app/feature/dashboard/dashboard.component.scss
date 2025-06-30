@@ -1,0 +1,29 @@
+@use '../../../styles/variables' as *; // adjust path based on your project
+
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  background-color: $bg-dashboard;
+
+  .navbar {
+    width: $sidebar-width-small;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .dashboard-content {
+    flex: 1;
+    padding: $content-padding;
+
+    .stats-chart {
+      margin-bottom: 24px;
+    }
+
+    .grid-table {
+      background-color: $card-bg;
+      border-radius: $card-radius;
+      padding: 12px;
+      box-shadow: $card-shadow;
+    }
+  }
+}

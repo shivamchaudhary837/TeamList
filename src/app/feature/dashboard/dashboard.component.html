@@ -1,0 +1,50 @@
+
+<div class="dashboard-wrapper">
+  <app-navbar class="navbar"></app-navbar>
+
+  <main class="dashboard-content">
+    <!-- Show loader while loading -->
+    <ng-container *ngIf="loading$ | async; else mainContent">
+      <app-loader></app-loader>
+    </ng-container>
+
+    <!-- Render main content after loading is false -->
+    <ng-template #mainContent>
+      <div class="stats-chart">
+        <app-chart ></app-chart>
+      </div>
+
+      <div class="grid-table">
+        <h3>Team Members  <span>{{users().length}} Users</span></h3>
+        <app-table 
+          [columns]="columns()" 
+          [users]="users()" 
+          (delete)="onDelete($event)"
+          (edit)="onEdit($event)"
+        ></app-table>
+      </div>
+    </ng-template>
+  </main>
+
+</div>
+<app-custom-modal 
+  [visible]="showEditModal" 
+  title="Are you sure want to Edit the User?"
+  (onClose)="showEditModal = false" 
+  (onConfirm)="handleEditConfirm()"
+>
+  <p>{{this.editedUserName}}</p>
+</app-custom-modal>
+
+<app-custom-modal 
+  [visible]="showDeleteModal" 
+  title="Are you sure want to Delete the User?"
+  (onClose)="showDeleteModal = false" 
+  (onConfirm)="handleDeleteConfirm()"
+>
+  <p>{{this.editedUserName}}</p>
+</app-custom-modal>
+
+
+
+

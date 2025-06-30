@@ -1,0 +1,81 @@
+@use '../../../../styles/.chart-variables' as *;
+
+.chart-container {
+  background-color: $white;
+  padding: $padding-lg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-soft;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 460px;
+}
+
+.vendor-heading {
+  display: flex;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.bar-chart-container {
+  width: 70%;
+  overflow: hidden;
+  padding: $padding-md;
+  box-shadow: $shadow-strong;
+
+  .report-btn-wrapper {
+    text-align: end;
+
+    .report-btn {
+      font-size: $font-sm;
+      font-weight: $font-semibold;
+      color: $gray-800;
+      background-color: $white;
+      border: 1px solid $gray-200;
+      border-radius: $radius-md;
+      padding: $padding-sm $padding-md;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .report-btn:hover {
+      cursor: pointer;
+      background-color: $gray-100;
+    }
+  }
+}
+
+.vendor-monitored {
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+  box-shadow: $shadow-strong;
+  padding: $padding-md;
+
+  .upgrade-btn-wrapper {
+    text-align: end;
+    width: 100%;
+
+    .upgrade-btn {
+      margin-top: $padding-md;
+      font-size: $font-sm;
+      font-weight: $font-semibold;
+      color: $gray-800;
+      background-color: $white;
+      border: 1px solid $gray-200;
+      border-radius: $radius-md;
+      padding: $padding-sm $padding-md;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .upgrade-btn:hover {
+      cursor: pointer;
+      background-color: $gray-100;
+    }
+  }
+}

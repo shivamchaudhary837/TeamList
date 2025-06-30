@@ -1,0 +1,17 @@
+@if(visible){
+<div class="modal-backdrop" (click)="onBackdropClick()" >
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ title }}</h3>
+      <button class="close-btn" (click)="close()">×</button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer">
+      <button class="btn cancel" (click)="cancel()">Cancel</button>
+      <button class="btn confirm" (click)="confirm()">Confirm</button>
+    </div>
+  </div>
+</div>
+}

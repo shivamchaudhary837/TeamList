@@ -5,7 +5,7 @@ An interactive and responsive dashboard built with **Angular 19**, featuring use
 ## Installation steps:
 
 - git clone https://github.com/your-username/team-dashboard.git
-  cd team-dashboard
+- change the file location : cd team-dashboard
 - Install Dependencies: npm install
 - Run the application : npm start
 - Visit the app at: http://localhost:4200

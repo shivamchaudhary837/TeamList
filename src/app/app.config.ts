@@ -18,6 +18,6 @@ export const appConfig: ApplicationConfig = {
     ,provideEffects([UserEffects]),
     provideStore({ user: userReducer }),
     provideStoreDevtools(),
-      provideAnimationsAsync()
+    provideAnimationsAsync()
   ]
 };
